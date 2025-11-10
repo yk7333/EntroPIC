@@ -21,6 +21,9 @@
 ---
 
 ## 🧠 Overview
+<p align="center">
+  <img src="figures/overview.svg" alt="Entropy Control" width="90%">
+</p>
 
 Long-term training of large language models (LLMs) requires maintaining **stable exploration** to prevent collapse into sub-optimal behaviors.  
 **Entropy** plays a key role in this process by regulating exploration and preventing premature convergence.
@@ -51,6 +54,11 @@ Follow the steps below to start **single-machine training** with **Qwen3-8B-Base
    ```bash
    bash run_entropic.sh
 
+<p align="center">
+  <img src="figures/exp_entropy.svg" alt="Exp-Entropy" width="32%">
+  <img src="figures/exp_reward.svg" alt="Exp-Reward" width="32%">
+  <img src="figures/exp_eval.svg" alt="Exp-Eval" width="32%">
+</p>
 ---
 
 ## 📊 Evaluation
@@ -133,10 +141,6 @@ def compute_policy_loss_entropic(..., control_alpha):
     )
     pg_loss = pg_loss + pg_loss_adjust
 ```
-
-<p align="center">
-  <img src="figures/overview.svg" alt="Entropy Control" width="90%">
-</p>
 
 ---
 
