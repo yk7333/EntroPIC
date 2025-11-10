@@ -59,7 +59,6 @@ Follow the steps below to start **single-machine training** with **Qwen3-8B-Base
   <img src="figures/exp_reward.svg" alt="Exp-Reward" width="32%">
   <img src="figures/exp_eval.svg" alt="Exp-Eval" width="32%">
 </p>
----
 
 ## 📊 Evaluation
 ### 🧩 On-policy Training Results
@@ -87,10 +86,11 @@ Follow the steps below to start **single-machine training** with **Qwen3-8B-Base
 | GRPO         |      91.3 / 97.4      |   72.4 / 92.8   |   34.3 / 66.7   |   26.7 / 43.3   |   57.7 / 70.1   |   39.2 / 55.8   |   53.6 / 71.0   |
 | **EntroPIC** |    **92.7 / 98.0**    | **78.5 / 94.0** | **39.8 / 76.7** | **32.1 / 50.0** | **60.4 / 72.5** | **41.2 / 57.5** | **57.8 / 74.7** |
 
-For evaluation, please refer to:
+For evaluation, you could refer to [DeepScaler](https://github.com/agentica-project/rllm) and [IFEval evaluation](https://github.com/google-research/google-research/tree/master/instruction_following_eval).
 
-* [DeepScaler](https://github.com/agentica-project/rllm)
-* [IFEval](https://github.com/google-research/google-research/tree/master/instruction_following_eval)
+We evaluate model performance across multiple mathematical reasoning benchmarks, including **Math**, **AMC**, **AIME24**, **AIME25**, **Olympic Bench**, and **Omni-math**.
+To ensure stable and reliable results, we perform each evaluation **8 times** on the *Math*, *Olympic Bench*, and *Omni-math* datasets, while the *AIME24*, *AIME25*, and *AMC* datasets — which exhibit larger variance — are each evaluated **32 times**.
+Final scores are reported as the **average across all runs**.
 
 ---
 
