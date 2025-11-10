@@ -1,0 +1,18 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+trainer:
+  project_name: Entropic
+
+actor_rollout_ref:
+  actor:
+    target_entropy: -1
+    entropy_control_p: 1
+    entropy_control_i : 0.01
+    policy_loss:
+      loss_mode: "entropic"
