@@ -25,10 +25,10 @@
   <img src="figures/overview.png" alt="Entropy Control" width="90%">
 </p>
 
-Long-term training of large language models (LLMs) requires maintaining **stable exploration** to prevent collapse into sub-optimal behaviors.  
+Long-term training of LLMs requires maintaining **stable exploration** to prevent collapse into sub-optimal behaviors.  
 **Entropy** plays a key role in this process by regulating exploration and preventing premature convergence.
 
-However, reinforcement learning (RL) methods often struggle to maintain an appropriate entropy level, since **positive and negative samples** affect entropy in opposite ways during training.
+However, RL methods often struggle to maintain an appropriate entropy level, since **positive and negative samples** affect entropy in opposite ways during training.
 
 We introduce **EntroPIC** (**Entro**py stabilization via **P**roportional-**I**ntegral **C**ontrol) — a simple yet effective approach that **dynamically balances** the influence of positive and negative samples through adaptive loss weighting.  
 
