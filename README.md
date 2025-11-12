@@ -22,7 +22,7 @@
 
 ## 🧠 Overview
 <p align="center">
-  <img src="figures/overview.svg" alt="Entropy Control" width="90%">
+  <img src="figures/overview.png" alt="Entropy Control" width="90%">
 </p>
 
 Long-term training of large language models (LLMs) requires maintaining **stable exploration** to prevent collapse into sub-optimal behaviors.  
