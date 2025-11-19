@@ -1,6 +1,11 @@
 <div align="center" style="font-family: charter;">
 <h1>EntroPIC: Towards Stable Long-Term Training of LLMs via Entropy Stabilization with Proportional-Integral Control</h1>
 
+<a href="#" target="_blank">
+    <img alt="arXiv" src="https://img.shields.io/badge/arXiv-EntroPIC-red?logo=arxiv" height="20" /></a>
+<a href="https://huggingface.co/spaces/yangkaiSIGS/entropic" target="_blank">
+    <img alt="" src="https://img.shields.io/badge/%F0%9F%A4%97%20_Website-EntroPIC-ffc107?color=ffc107&logoColor=white" height="20" /></a>
+
 <div>
 <a href="https://yk7333.github.io/" target="_blank">Kai Yang</a><sup>1</sup>,
 <a href="https://xinxu-ustc.github.io/" target="_blank">Xin Xu</a><sup>1,2</sup>,
