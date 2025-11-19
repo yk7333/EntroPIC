@@ -9,11 +9,11 @@
 <div>
 <a href="https://yk7333.github.io/" target="_blank">Kai Yang</a><sup>1</sup>,
 <a href="https://xinxu-ustc.github.io/" target="_blank">Xin Xu</a><sup>1,2</sup>,
-<a href="" target="_blank">Yangkun Chen</a><sup>1</sup>,
+<a href="https://github.com/kkane99" target="_blank">Yangkun Chen</a><sup>1</sup>,
 <a href="https://github.com/autoliuweijie" target="_blank">Weijie Liu</a><sup>1</sup>,
 <a href="https://dmksjfl.github.io/" target="_blank">Jiafei Lyu</a><sup>1</sup>,
-<a href="" target="_blank">Zichuan Lin</a><sup>1</sup>,
-<a href="" target="_blank">Deheng Ye</a><sup>1</sup>,
+<a href="https://linzichuan.github.io/" target="_blank">Zichuan Lin</a><sup>1</sup>,
+<a href="https://scholar.google.com/citations?user=jz5XKuQAAAAJ&hl=en&oi=ao" target="_blank">Deheng Ye</a><sup>1</sup>,
 <a href="https://github.com/yangsaiyong" target="_blank">Saiyong Yang</a><sup>1†</sup>
 </div>
 
