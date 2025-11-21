@@ -153,3 +153,17 @@ def compute_policy_loss_entropic(..., control_alpha):
 If you have any questions or would like to discuss collaboration, please feel free to contact:  
 Kai Yang — [kasperyang@tencent.com](mailto:kasperyang@tencent.com)  
 Saiyong Yang — [stevesyang@tencent.com](mailto:stevesyang@tencent.com)
+
+## 📚 Citation
+If you find our work helpful for your research, please consider citing our paper:
+```
+@misc{yang2025entropic,
+      title={EntroPIC: Towards Stable Long-Term Training of LLMs via Entropy Stabilization with Proportional-Integral Control}, 
+      author={Kai Yang and Xin Xu and Yangkun Chen and Weijie Liu and Jiafei Lyu and Zichuan Lin and Deheng Ye and Saiyong Yang},
+      year={2025},
+      eprint={2511.15248},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2511.15248}, 
+}
+```
