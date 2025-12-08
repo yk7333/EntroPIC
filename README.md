@@ -157,13 +157,10 @@ Saiyong Yang — [stevesyang@tencent.com](mailto:stevesyang@tencent.com)
 ## 📚 Citation
 If you find our work helpful for your research, please consider citing our paper:
 ```
-@misc{yang2025entropic,
-      title={EntroPIC: Towards Stable Long-Term Training of LLMs via Entropy Stabilization with Proportional-Integral Control}, 
-      author={Kai Yang and Xin Xu and Yangkun Chen and Weijie Liu and Jiafei Lyu and Zichuan Lin and Deheng Ye and Saiyong Yang},
-      year={2025},
-      eprint={2511.15248},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2511.15248}, 
+@article{yang2025entropic,
+  title={EntroPIC: Towards Stable Long-Term Training of LLMs via Entropy Stabilization with Proportional-Integral Control},
+  author={Yang, Kai and Xu, Xin and Chen, Yangkun and Liu, Weijie and Lyu, Jiafei and Lin, Zichuan and Ye, Deheng and Yang, Saiyong},
+  journal={arXiv preprint arXiv:2511.15248},
+  year={2025}
 }
 ```
