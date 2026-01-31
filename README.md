@@ -29,12 +29,11 @@
 
 ---
 ## 🏆 Highlight
- The 1.5b-parameter model trained with the **EntroPIC** method has surpassed current top baselines, establishing a new **SOTA** of 1.5b parameter models.
+The 1.5B-parameter model trained with EntroPIC has set a new state-of-the-art (SOTA), surpassing top baselines and achieving the best results on both pass@1 and pass@N evaluations.
 > *   **Model Access:** You can find and use the model at: [https://huggingface.co/yangkaiSIGS/EntroPIC-Nemotron-1.5b](https://huggingface.co/yangkaiSIGS/EntroPIC-Nemotron-1.5b)
 > *   **Training Curves:** View the training logs and curves on Weights & Biases: [https://wandb.ai/1658198604/entropy?nw=nwuser1658198604](https://wandb.ai/1658198604/entropy?nw=nwuser1658198604)
 
 <p align="center">
-  <!-- Ensure you upload performance_chart.png to the figures folder -->
   <img src="figures/entropic_reasoning.png" alt="Reasoning Performance" width="95%">
 </p>
 
@@ -96,16 +95,12 @@ We applied EntroPIC to **OpenReasoning-Nemotron-1.5B**. The model demonstrates s
 **Robust Generalization**  
 Unlike other RL methods that suffer from "alignment tax" (forgetting general capabilities), EntroPIC improves performance on non-mathematical tasks.
 
-| Models | MMLU-Pro (General) | LiveCodeBench (Coding) | GPQA (Science) |
-| :--- | :---: | :---: | :---: |
-| Nemotron-1.5B | 41.7 | 28.3 | 35.9 |
-| QuestA | 30.0 | 0.0 | 13.1 |
-| JustRL | 28.1 | 0.4 | 30.1 |
-| **EntroPIC** | **48.2** | **40.9** | **38.9** |
+<p align="center">
+  <!-- Ensure you upload performance_chart.png to the figures folder -->
+  <img src="figures/entropic_generalize.png" alt="Generalize Performance" width="60%">
+</p>
 
-<br>
-
-### 🧩 Standard Model Results (Qwen3-8B)
+### 🧩 Non-thinking Model Results (Qwen3-8B-base)
 
 For non-reasoning models, we report results based on **Qwen3-8B-Base**.  
 Evaluation uses [DeepScaler](https://github.com/agentica-project/rllm) and [IFEval](https://github.com/google-research/google-research/tree/master/instruction_following_eval) protocols.
