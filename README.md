@@ -5,6 +5,10 @@
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-EntroPIC-red?logo=arxiv" height="20" /></a>
 <a href="https://huggingface.co/spaces/yangkaiSIGS/entropic" target="_blank">
     <img alt="" src="https://img.shields.io/badge/%F0%9F%A4%97%20_Website-EntroPIC-ffc107?color=ffc107&logoColor=white" height="20" /></a>
+<a href="https://huggingface.co/yangkaiSIGS/EntroPIC-Nemotron-1.5b" target="_blank">
+    <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20_Model-EntroPIC--Nemotron--1.5B-blue" height="20" /></a>
+<a href="https://wandb.ai/1658198604/entropy?nw=nwuser1658198604" target="_blank">
+    <img alt="WandB" src="https://img.shields.io/badge/WandB-Training%20Curves-orange?logo=weightsandbiases" height="20" /></a>
 
 <div>
 <a href="https://yk7333.github.io/" target="_blank">Kai Yang</a><sup>1</sup>,
@@ -24,6 +28,16 @@
 </div>
 
 ---
+## 🏆 Highlight
+ The 1.5b-parameter model trained with the **EntroPIC** method has surpassed current top baselines, establishing a new **SOTA** of 1.5b parameter models.
+> *   **Model Access:** You can find and use the model at: [https://huggingface.co/yangkaiSIGS/EntroPIC-Nemotron-1.5b](https://huggingface.co/yangkaiSIGS/EntroPIC-Nemotron-1.5b)
+> *   **Training Curves:** View the training logs and curves on Weights & Biases: [https://wandb.ai/1658198604/entropy?nw=nwuser1658198604](https://wandb.ai/1658198604/entropy?nw=nwuser1658198604)
+
+<p align="center">
+  <!-- Ensure you upload performance_chart.png to the figures folder -->
+  <img src="figures/entropic_reasoning.png" alt="Reasoning Performance" width="95%">
+</p>
+
 
 ## 🧠 Overview
 <p align="center">
@@ -58,15 +72,45 @@ Follow the steps below to start **single-machine training** with **Qwen3-8B-Base
 2. **Start training:**
    ```bash
    bash run_entropic.sh
+   ```
+
+---
 
 ## 📊 Evaluation
-For evaluation, you could refer to [DeepScaler](https://github.com/agentica-project/rllm) and [IFEval evaluation](https://github.com/google-research/google-research/tree/master/instruction_following_eval).
 
-We evaluate model performance across multiple mathematical reasoning benchmarks, including **Math**, **AMC**, **AIME24**, **AIME25**, **Olympic Bench**, and **Omni-math**.
-To ensure stable and reliable results, we perform each evaluation **8 times** on the *Math*, *Olympic Bench*, and *Omni-math* datasets, while the *AIME24*, *AIME25*, and *AMC* datasets — which exhibit larger variance — are each evaluated **32 times**.
-Final scores are reported as the **average across all runs**.
+We perform comprehensive evaluations on both **Reasoning Models** (Chain-of-Thought based) and **Standard Models** (Answer-only).
 
-### 🧩 On-policy Training Results
+### 🏆 Reasoning Model Results (Nemotron-1.5B)
+
+We applied EntroPIC to **OpenReasoning-Nemotron-1.5B**. The model demonstrates state-of-the-art performance among 1.5B parameter models, outperforming strong baselines like QuestA and JustRL on challenging mathematical benchmarks while maintaining robust generalization.
+
+**Comparison on Mathematical Benchmarks (Avg@N)**
+
+| Models | Math | AMC | AIME24 | AIME25 | Olympiad | Minerva | HMMT | BRUMO | CMIMC | Overall |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Nemotron-1.5B | 88.7 | 86.6 | 51.7 | 46.4 | 62.1 | 25.5 | 30.9 | 49.6 | 26.8 | 52.0 |
+| QuestA | 93.2 | 94.1 | 72.5 | 63.1 | **71.1** | 25.3 | 42.1 | **70.0** | 42.1 | 63.7 |
+| JustRL | **94.2** | 95.4 | 69.6 | 61.5 | 70.5 | 23.9 | 37.5 | 67.2 | 39.2 | 62.1 |
+| **EntroPIC** | 93.2 | **96.4** | **74.9** | **68.3** | 70.1 | **36.4** | **42.7** | 63.8 | **43.0** | **65.4** |
+
+**Robust Generalization**  
+Unlike other RL methods that suffer from "alignment tax" (forgetting general capabilities), EntroPIC improves performance on non-mathematical tasks.
+
+| Models | MMLU-Pro (General) | LiveCodeBench (Coding) | GPQA (Science) |
+| :--- | :---: | :---: | :---: |
+| Nemotron-1.5B | 41.7 | 28.3 | 35.9 |
+| QuestA | 30.0 | 0.0 | 13.1 |
+| JustRL | 28.1 | 0.4 | 30.1 |
+| **EntroPIC** | **48.2** | **40.9** | **38.9** |
+
+<br>
+
+### 🧩 Standard Model Results (Qwen3-8B)
+
+For non-reasoning models, we report results based on **Qwen3-8B-Base**.  
+Evaluation uses [DeepScaler](https://github.com/agentica-project/rllm) and [IFEval](https://github.com/google-research/google-research/tree/master/instruction_following_eval) protocols.
+
+**On-policy Training Results**
 
 | Models        | Math (avg@N / pass@N) |       AMC       |      AIME24     |      AIME25     |  Olympic Bench  |    Omni-math    |     Overall     |
 | :------------ | :-------------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
@@ -76,20 +120,13 @@ Final scores are reported as the **average across all runs**.
 | AEC           |    **92.5 / 97.8**    |   77.6 / 89.2   |   37.1 / 73.3   |   31.6 / 60.0   | **60.9 / 72.5** |   42.0 / 58.5   |   56.9 / 75.2   |
 | **EntroPIC**  |      92.4 / 97.2      | **80.1 / 91.6** | **42.3 / 76.7** | **34.6 / 66.7** |   60.0 / 71.3   | **42.7 / 58.4** | **58.7 / 77.0** |
 
-### 🧩 Off-policy Training Results
+**Off-policy Training Results**
 
 | Models            | Math (avg@N / pass@N) |       AMC       |      AIME24     |      AIME25     |  Olympic Bench  |    Omni-math    |     Overall     |
 | :---------------- | :-------------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | GRPO              |      88.7 / 93.6      |   64.0 / 87.9   |   28.9 / 63.3   |   25.5 / 50.0   |   53.2 / 69.0   |   35.3 / 52.4   |   49.3 / 69.4   |
 | EntroPIC (P)      |      89.8 / 96.4      | 67.8 / **90.4** | **34.8 / 66.7** | 27.5 / **53.3** |   56.4 / 71.1   |   36.6 / 54.9   |   52.2 / 72.2   |
 | **EntroPIC (PI)** |    **91.9 / 97.0**    | **75.3 / 90.4** | 34.7 / **70.0** | **27.6 / 53.3** | **58.8 / 71.9** | **40.0 / 56.8** | **54.7 / 73.2** |
-
-### 🌡️ Temperature = 1.0 Setting
-
-| Models       | Math (avg@N / pass@N) |       AMC       |      AIME24     |      AIME25     |  Olympic Bench  |    Omni-math    |     Overall     |
-| :----------- | :-------------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-| GRPO         |      91.3 / 97.4      |   72.4 / 92.8   |   34.3 / 66.7   |   26.7 / 43.3   |   57.7 / 70.1   |   39.2 / 55.8   |   53.6 / 71.0   |
-| **EntroPIC** |    **92.7 / 98.0**    | **78.5 / 94.0** | **39.8 / 76.7** | **32.1 / 50.0** | **60.4 / 72.5** | **41.2 / 57.5** | **57.8 / 74.7** |
 
 <p align="center">
   <img src="figures/exp_entropy.svg" alt="Exp-Entropy" width="32%">
@@ -163,4 +200,5 @@ If you find our work helpful for your research, please consider citing our paper
   journal={arXiv preprint arXiv:2511.15248},
   year={2025}
 }
+```
 ```
